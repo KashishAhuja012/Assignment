@@ -1,26 +1,25 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-class palindrom
-{
-    public static void Main()
-    {
+﻿                   
+public class DuplicateCharacters  
+{  
+    public static void Main()  
+    {  Console.Write("Enter the string");
+            String str = Console.ReadLine();  
+        int count;        
+        char[] ch = str.ToCharArray();  
+          
         
-         Console.Write("Enter string");  
-         String str = Console.ReadLine();  // getting value from the user
-         String rev = "";  //empty string in which we are going to store each character in reverse order
-         String  temp =str;    // a temporary variable that can store the original string so that we compare with reverse string later on
-         for(int i = str.Length-1; i>=0;i--)            // using for loop in reverse direction 
-         {
-            rev=rev+str[i];         // concatenate each character with the rev, main logic of the reversing the string
-         }
-
-        if (temp==rev)              // compare reversed string with the original string that can store in temp variable
-        { Console.Write("Palindrome");  // if both are same then palindrome string
-        }
-        else
-        {
-            Console.Write("Not Palindrome"); // otherwise not palindrome string will print
-        }
- 
-    }
+        for(int i = 0; i <ch.Length; i++) {  
+            count = 1;  
+            for(int j = i+1; j <ch.Length; j++) {  
+                if(ch[i] == ch[j] && ch[i] != ' ') {  
+                    count++;  
+                   
+                    ch[j] = '0';  
+                }  
+            }  
+            
+            if(count > 1 && ch[i] != '0')  
+                Console.WriteLine("{0},{1}",ch[i],count);  
+        }  
+    }  
 }
